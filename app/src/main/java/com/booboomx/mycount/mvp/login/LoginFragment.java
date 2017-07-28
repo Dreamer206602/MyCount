@@ -8,6 +8,7 @@ import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatButton;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -46,13 +47,10 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
     TextView mTvForgetPassword;
     @BindView(R.id.tv_register)
     TextView mTvRegister;
-
     private EditText mEtPhone;
     private EditText mEtPassword;
     private VerifyPhoneDialog mVerifyPhoneDialog;
     private LoginContract.Presenter mPresenter;
-
-
     public static LoginFragment newInstance() {
         fragment = new LoginFragment();
         return fragment;
@@ -177,23 +175,25 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
-
         mPresenter = presenter;
     }
 
     @Override
     public void showLoginSuccess() {
-
-        ToastUtils.show(mContext,UiUtils.getString(R.string.login_success));
+        ProgressUtils.dismiss();
+        ToastUtils.show(mContext, UiUtils.getString(R.string.login_success));
         User user = UserUtils.getUser();
         String objectId = user.getObjectId();
 
+
+        UiUtils.enterHomePage(mContext);
 
     }
 
     @Override
     public void showLoginFail(Error e) {
 
+        Log.i(TAG, "showLoginFail: "+e.getMessage()+"\r"+e.getCode());
         ProgressUtils.dismiss();
         //判断手机号是否通过验证
         if (e.code == 215) {
@@ -228,11 +228,12 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
                                 }
                             });
 
-
                         }
                     });
 
 
+        }else{
+            ToastUtils.show(mContext,e.getMessage());
         }
 
     }

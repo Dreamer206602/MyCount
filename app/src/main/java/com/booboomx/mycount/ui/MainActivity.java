@@ -1,6 +1,7 @@
 package com.booboomx.mycount.ui;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,7 +14,7 @@ import android.view.MenuItem;
 import com.booboomx.mycount.R;
 import com.booboomx.mycount.base.BaseActivity;
 import com.booboomx.mycount.ui.activity.FeedBackActivity;
-import com.booboomx.mycount.mvp.login.LoginActivity;
+import com.booboomx.mycount.ui.activity.SettingActivity;
 import com.booboomx.mycount.utils.UiUtils;
 
 import butterknife.BindView;
@@ -30,6 +31,12 @@ public class MainActivity extends BaseActivity
     @BindView(R.id.nav_view)
     NavigationView mNavigationView;
 
+
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        setSlideable(false);
+        super.onCreate(savedInstanceState);
+    }
     @Override
     protected void onCreateActivity(Bundle savedInstanceState) {
 
@@ -101,7 +108,7 @@ public class MainActivity extends BaseActivity
 
         } else if (id == R.id.nav_setting) {
             //设置
-            jumpActivity(LoginActivity.class);
+            jumpActivity(SettingActivity.class);
 
         }
 

@@ -1,6 +1,5 @@
 package com.booboomx.mycount.ui.activity;
 
-import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
 import android.os.Handler;
@@ -10,8 +9,11 @@ import android.widget.TextView;
 
 import com.booboomx.mycount.R;
 import com.booboomx.mycount.base.BaseActivity;
+import com.booboomx.mycount.data.User;
+import com.booboomx.mycount.mvp.login.LoginActivity;
 import com.booboomx.mycount.ui.MainActivity;
 import com.booboomx.mycount.utils.AppUtils;
+import com.booboomx.mycount.utils.UserUtils;
 
 import butterknife.BindView;
 
@@ -33,10 +35,24 @@ public class SplashActivity extends BaseActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent();
-                intent.setClass(mContext, MainActivity.class);
-                startActivity(intent);
-                finish();
+                //判断用户是否更新了应用和登录
+                if (UserUtils.checkLogin()) {
+
+                    User user = UserUtils.getUser();
+                    boolean mobilePhoneVerified = user.isMobilePhoneVerified();
+                    if (mobilePhoneVerified) {
+                        // 进入首页
+                        jumpActivity(MainActivity.class);
+                    } else {
+                        //进入登陆页
+                        jumpActivity(LoginActivity.class);
+                    }
+
+                } else {
+                    //进入登录页
+                    jumpActivity(LoginActivity.class);
+                }
+
 
             }
         }, 2000);

@@ -17,7 +17,6 @@ public class LoginActivity extends BaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         setSlideable(false);
         super.onCreate(savedInstanceState);
-
     }
 
     @Override

@@ -31,7 +31,6 @@ public abstract class BaseFragment extends Fragment {
     public static String TAG;
     private AppCompatActivity mCompatActivity;
 
-
     // 是否可见
     protected boolean mIsVisiable;
     // 是否已经调用了 onCreateView
@@ -46,7 +45,6 @@ public abstract class BaseFragment extends Fragment {
         mActivity = getActivity();
         mContext = mActivity;
         mCompatActivity = (AppCompatActivity) mActivity;
-
         setHasOptionsMenu(true);
 
     }
