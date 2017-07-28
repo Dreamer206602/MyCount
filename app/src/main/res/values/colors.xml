@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<color name="colorPrimary">#3F51B5</color>-->
+    <!--<color name="colorPrimaryDark">#303F9F</color>-->
+    <!--<color name="colorAccent">#FF4081</color>-->
+
+
+    <color name="colorPrimaryDark">#FF82A8</color>
+    <color name="colorPrimary">#FEACC3</color>
+    <color name="colorAccent">#FFBACD</color>
+    <color name="colorDivide">#F9F9F9</color>
+    <color name="colorTabSelect">#FFE0AA</color>
+    <color name="colorMainDateBg">#F7F7F7</color>
+    <color name="colorControlNormal">#CCCCCC</color>
+    <!--页面默认背景色-->
+    <color name="colorBackground">#F9F9F9</color>
+    <!--文字颜色-->
+    <color name="textWhite">#FFFFFF</color>
+    <color name="textBlack">#333333</color>
+    <color name="textBrown">#6A4A57</color>
+    <color name="textPink">#FE88A8</color>
+    <color name="textMaple">#977F8A</color>
+    <color name="textLightBlue">#96D6EF</color>
+    <color name="textRed">#ED5543</color>
+    <color name="textGrayish">#999999</color>
+    <color name="textGray">#666666</color>
+
+    <color name="black">#333333</color>
+    <color name="gray">#999999</color>
+    <color name="grayish">#EFEFEF</color>
+    <color name="white">#FFFFFF</color>
+    <color name="green">#91D7E3</color>
+    <color name="transparent">#00000000</color>
+
+    <!--tab layout 文字颜色-->
+    <color name="tabNormalTextColor">#8CFFFFFF</color>
+    <color name="tabSelectedTextColor">#FFFFFF</color>
+    <color name="tabIndicatorColor">#FFFFFF</color>
+
+
+
+    <color name="avoscloud_timestamp_gray">#888</color>
+    <color name="avoscloud_feedback_white">#fff</color>
+    <color name="avoscloud_feedback_back_background">#333333</color>
+    <color name="avoscloud_feedback_thread_header_background">#000</color>
+    <color name="avoscloud_feedback_thread_actionbar_blue">#56b8f4</color>
+    <color name="avoscloud_feedback_text_gray">#898989</color>
+    <color name="avoscloud_feedback_input_wrap_background">#f8f8f8</color>
+</resources>
