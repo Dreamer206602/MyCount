@@ -3,6 +3,7 @@ package com.booboomx.mycount.mvp.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.design.widget.Snackbar;
 import android.support.design.widget.TextInputLayout;
 import android.support.v7.widget.AppCompatButton;
@@ -19,6 +20,7 @@ import com.booboomx.mycount.base.BaseFragment;
 import com.booboomx.mycount.data.Error;
 import com.booboomx.mycount.data.User;
 import com.booboomx.mycount.mvp.register.RegisterActivity;
+import com.booboomx.mycount.ui.MainActivity;
 import com.booboomx.mycount.utils.ProgressUtils;
 import com.booboomx.mycount.utils.RegexUtils;
 import com.booboomx.mycount.utils.ToastUtils;
@@ -32,7 +34,8 @@ import butterknife.OnClick;
 /**
  * 注册
  */
-public class LoginFragment extends BaseFragment implements View.OnFocusChangeListener, LoginContract.View {
+//View.OnFocusChangeListener,
+public class LoginFragment extends BaseFragment implements  LoginContract.View {
 
     public static LoginFragment fragment;
     @BindView(R.id.iv_head)
@@ -51,20 +54,20 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
     private EditText mEtPassword;
     private VerifyPhoneDialog mVerifyPhoneDialog;
     private LoginContract.Presenter mPresenter;
+
     public static LoginFragment newInstance() {
         fragment = new LoginFragment();
         return fragment;
     }
 
     @Override
-    protected void onCreateFragment(Bundle savedInstanceState) {
+    protected void onCreateFragment(@Nullable Bundle savedInstanceState) {
 
         mEtPhone = mTilPhone.getEditText();
         mEtPassword = mTilPassword.getEditText();
 
         if (mEtPassword == null) return;
-        mEtPassword.setOnFocusChangeListener(this);
-
+//        mEtPassword.setOnFocusChangeListener(this);
         mEtPhone.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -168,10 +171,10 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
     }
 
 
-    @Override
-    public void onFocusChange(View v, boolean hasFocus) {
-        mIvHead.setImageResource(hasFocus ? R.mipmap.ic_login_pwd : R.mipmap.ic_login_name);
-    }
+//    @Override
+//    public void onFocusChange(View v, boolean hasFocus) {
+//        mIvHead.setImageResource(hasFocus ? R.mipmap.ic_login_pwd : R.mipmap.ic_login_name);
+//    }
 
     @Override
     public void setPresenter(LoginContract.Presenter presenter) {
@@ -186,14 +189,17 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
         String objectId = user.getObjectId();
 
 
-        UiUtils.enterHomePage(mContext);
+//        UiUtils.enterHomePage(mContext);
+
+        startActivity(new Intent(mContext, MainActivity.class));
+        finish();
 
     }
 
     @Override
     public void showLoginFail(Error e) {
 
-        Log.i(TAG, "showLoginFail: "+e.getMessage()+"\r"+e.getCode());
+        Log.i(TAG, "showLoginFail: " + e.getMessage() + "\r" + e.getCode());
         ProgressUtils.dismiss();
         //判断手机号是否通过验证
         if (e.code == 215) {
@@ -232,8 +238,8 @@ public class LoginFragment extends BaseFragment implements View.OnFocusChangeLis
                     });
 
 
-        }else{
-            ToastUtils.show(mContext,e.getMessage());
+        } else {
+            ToastUtils.show(mContext, e.getMessage());
         }
 
     }

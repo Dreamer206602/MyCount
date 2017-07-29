@@ -144,9 +144,9 @@ public abstract class BaseActivity extends SlideBackActivity {
 
     @Override
     protected void onDestroy() {
+        super.onDestroy();
         mUnbinder.unbind();
         ActivityManager.getInstance().popActivity(this);
-        super.onDestroy();
     }
 
     @Override
@@ -176,6 +176,7 @@ public abstract class BaseActivity extends SlideBackActivity {
 
     public void jumpActivity(Class<?> tClass) {
         startActivity(new Intent(mContext, tClass));
+        finish();
     }
 
 

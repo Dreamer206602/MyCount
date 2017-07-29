@@ -1,6 +1,7 @@
 package com.booboomx.mycount.mvp.login;
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.widget.Toolbar;
 
 import com.booboomx.mycount.R;
@@ -14,13 +15,13 @@ import com.booboomx.mycount.utils.ActivityUtils;
 public class LoginActivity extends BaseActivity {
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
         setSlideable(false);
         super.onCreate(savedInstanceState);
     }
 
     @Override
-    protected void onCreateActivity(Bundle savedInstanceState) {
+    protected void onCreateActivity(@Nullable Bundle savedInstanceState) {
         Toolbar toolbar = initTooBar("");
         toolbar.setNavigationIcon(null);
 

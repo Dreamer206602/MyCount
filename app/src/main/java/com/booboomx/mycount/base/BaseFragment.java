@@ -37,7 +37,6 @@ public abstract class BaseFragment extends Fragment {
     protected boolean mIsViewCreate;
     private Unbinder bind;
 
-
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +45,6 @@ public abstract class BaseFragment extends Fragment {
         mContext = mActivity;
         mCompatActivity = (AppCompatActivity) mActivity;
         setHasOptionsMenu(true);
-
     }
 
 
@@ -54,22 +52,16 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         mView = inflater.inflate(getFragmentLayoutId(), container, false);
+        bind = ButterKnife.bind(this, mView);
         return mView;
-
-
     }
 
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
         mIsViewCreate = true;
-        bind = ButterKnife.bind(this, mView);
-
 
     }
-
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -135,7 +127,7 @@ public abstract class BaseFragment extends Fragment {
     }
 
 
-    protected abstract void onCreateFragment(Bundle savedInstanceState);
+    protected abstract void onCreateFragment( @Nullable Bundle savedInstanceState);
 
 
     public abstract int getFragmentLayoutId();
@@ -144,18 +136,17 @@ public abstract class BaseFragment extends Fragment {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
-        mIsVisiable=isVisibleToUser;
-        if(mIsViewCreate&&mIsVisiable){
+        mIsVisiable = isVisibleToUser;
+        if (mIsViewCreate && mIsVisiable) {
             onLazyLoadData();
         }
     }
 
     protected abstract void onLazyLoadData();
-
-
     @Override
     public void onDestroyView() {
-        bind.unbind();
         super.onDestroyView();
+        bind.unbind();
+
     }
 }
