@@ -43,14 +43,17 @@ public class SplashActivity extends BaseActivity {
                     if (mobilePhoneVerified) {
                         // 进入首页
                         jumpActivity(MainActivity.class);
+                        finish();
                     } else {
                         //进入登陆页
                         jumpActivity(LoginActivity.class);
+                        finish();
                     }
 
                 } else {
                     //进入登录页
                     jumpActivity(LoginActivity.class);
+                    finish();
                 }
 
 

@@ -176,7 +176,7 @@ public abstract class BaseActivity extends SlideBackActivity {
 
     public void jumpActivity(Class<?> tClass) {
         startActivity(new Intent(mContext, tClass));
-        finish();
+//        finish();
     }
 
 

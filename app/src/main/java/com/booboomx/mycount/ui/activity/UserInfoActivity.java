@@ -6,18 +6,17 @@ import com.booboomx.mycount.R;
 import com.booboomx.mycount.base.BaseActivity;
 
 /**
- * 意见反馈的界面
+ * 用户信息的界面
  */
-public class FeedBackActivity extends BaseActivity {
+public class UserInfoActivity extends BaseActivity {
 
     @Override
     protected void onCreateActivity(Bundle savedInstanceState) {
-
 
     }
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_feed_back;
+        return R.layout.activity_user_info;
     }
 }

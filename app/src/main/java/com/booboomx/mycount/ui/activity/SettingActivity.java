@@ -1,15 +1,24 @@
 package com.booboomx.mycount.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
 import com.booboomx.mycount.R;
+import com.booboomx.mycount.base.BaseActivity;
 
-public class SettingActivity extends AppCompatActivity {
+/**
+ * 设置的界面
+ */
+public class SettingActivity extends BaseActivity {
+
+
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_setting);
+    protected void onCreateActivity(Bundle savedInstanceState) {
+
+    }
+
+    @Override
+    public int getLayoutId() {
+        return R.layout.activity_setting;
     }
 }

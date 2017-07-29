@@ -13,6 +13,8 @@ import android.view.MenuItem;
 
 import com.booboomx.mycount.R;
 import com.booboomx.mycount.base.BaseActivity;
+import com.booboomx.mycount.ui.activity.AccountBookActivity;
+import com.booboomx.mycount.ui.activity.CountActivity;
 import com.booboomx.mycount.ui.activity.FeedBackActivity;
 import com.booboomx.mycount.ui.activity.SettingActivity;
 import com.booboomx.mycount.utils.UiUtils;
@@ -37,6 +39,7 @@ public class MainActivity extends BaseActivity
         setSlideable(false);
         super.onCreate(savedInstanceState);
     }
+
     @Override
     protected void onCreateActivity(Bundle savedInstanceState) {
 
@@ -97,10 +100,11 @@ public class MainActivity extends BaseActivity
 
         if (id == R.id.nav_account_books) {
             //账薄
+            jumpActivity(AccountBookActivity.class);
 
         } else if (id == R.id.nav_count) {
             //统计
-
+            jumpActivity(CountActivity.class);
 
         } else if (id == R.id.nav_feedback) {
             //意见反馈
